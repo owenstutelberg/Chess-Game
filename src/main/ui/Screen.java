@@ -12,7 +12,7 @@ public class Screen {
     }
 
     public void update() {
-
+        board.update();
     }
 
     public void draw(Graphics g) {
@@ -20,10 +20,10 @@ public class Screen {
     }
 
     public void handleMousePress(MouseEvent e) {
-
+        board.handleMousePress(e);
     }
 
     public void handleMouseRelease(MouseEvent e) {
-
+        board.handleMouseRelease(e);
     }
 }

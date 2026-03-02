@@ -17,5 +17,15 @@ public class Cell {
         return color;
     }
 
+    public void addPiece(Piece p) {
+        piece = Optional.of(p);
+    }
 
+    public Optional<Piece> getPiece() {
+        return piece;
+    }
+
+    public void clear() {
+        piece = Optional.empty();
+    }
 }
