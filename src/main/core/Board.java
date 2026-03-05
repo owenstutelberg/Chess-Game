@@ -107,7 +107,8 @@ public class Board {
         int x = e.getX() / 70;
         int y = e.getY() / 70;
 
-        if (x > 7 || y > 7 || x < 0 || y < 0) return;
+        if (x > 7 || y > 7 || x < 0 || y < 0)
+            return;
 
         // target cell where the mouse was released
         Cell dest = board[x][y];
@@ -115,14 +116,17 @@ public class Board {
         if (selection != null && selection.getPiece().isPresent()) {
             // move the piece from the selected cell to the destination
             Piece moving = selection.getPiece().get();
-            dest.addPiece(moving);
-            moving.setPosition(new Point(x, y));
-            selection.clear();
+
+            if (moving.isValidMove(new Point(x, y), board)) {
+                dest.addPiece(moving);
+                moving.setPosition(new Point(x, y));
+                selection.clear();
+                flip();
+            }
+
         }
 
         // reset selection reference
         selection = null;
-
-        flip();
     }
 }

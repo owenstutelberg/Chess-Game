@@ -6,6 +6,8 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 
+import main.core.Cell;
+
 public abstract class Piece {
     protected Point pos;
     protected String color;
@@ -27,4 +29,6 @@ public abstract class Piece {
     public void draw(Graphics g) {
         g.drawImage(image, 70 * pos.x + 9, 70 * pos.y + 9, 50, 50, null);
     }
+
+    public abstract boolean isValidMove(Point p, Cell[][] board);
 }
