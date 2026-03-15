@@ -11,17 +11,18 @@ public class Queen extends Piece {
 
     @Override
     public boolean isValidMove(Point p, Cell[][] board) {
+        if (board[p.x][p.y].getPiece().isPresent()) {
+            if (board[p.x][p.y].getPiece().get().color.equals(this.color)) {
+                return false;
+            }
+        }
 
         if (p.equals(pos)) return false;
 
         int dx = Math.abs(p.x - pos.x);
         int dy = Math.abs(p.y - pos.y);
 
-        if (board[p.x][p.y].getPiece().isPresent()) {
-            if (board[p.x][p.y].getPiece().get().color.equals(this.color)) {
-                return false;
-            }
-        }
+        
 
         if (dx == dy) {
             int stepX = Integer.compare(dx, 0);

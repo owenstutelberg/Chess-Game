@@ -17,6 +17,8 @@ import main.model.Rook;
 public class Board {
     private Cell[][] board;
 
+    private int turn = 0;
+
     private Cell selection;
     private Cell placement;
 

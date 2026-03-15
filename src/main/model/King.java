@@ -16,6 +16,7 @@ public class King extends Piece {
                 return false;
             }
         }
+        if (p.equals(pos)) return false;
         
         int dx = Math.abs(p.x - pos.x);
         int dy = Math.abs(p.y - pos.y);

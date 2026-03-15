@@ -16,6 +16,17 @@ public class Pawn extends Piece {
                 return false;
             }
         }
+        if (p.equals(pos)) return false;
+
+        int dx = Math.abs(p.x - pos.y);
+        int dy = Math.abs(p.y - pos.y);
+
+        if (!(p.y < pos.y && dy <= 1 && p.x == pos.x)) {
+            return false;
+        }
+
+        
+
         return true;
     }
 }

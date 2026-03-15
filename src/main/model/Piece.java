@@ -30,5 +30,9 @@ public abstract class Piece {
         g.drawImage(image, 70 * pos.x + 9, 70 * pos.y + 9, 50, 50, null);
     }
 
+    public String getColor() {
+        return color;
+    }
+
     public abstract boolean isValidMove(Point p, Cell[][] board);
 }
