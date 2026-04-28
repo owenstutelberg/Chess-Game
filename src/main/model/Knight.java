@@ -21,6 +21,6 @@ public class Knight extends Piece {
         int dx = Math.abs(p.x - pos.x);
         int dy = Math.abs(p.y - pos.y);
 
-        return (dx == 2 & dy == 1) || (dx == 1 && dy == 2);
+        return (dx == 2 && dy == 1) || (dx == 1 && dy == 2);
     }
 }

@@ -60,7 +60,6 @@ public class Board {
                 board[x][y] = new Cell((x + y) % 2 == 0 ? new Color(231, 237, 235) : new Color(105, 164, 129), piece);
             }
         }
-
     }
 
     public void update() {

@@ -25,13 +25,13 @@ public class Queen extends Piece {
         
 
         if (dx == dy) {
-            int stepX = Integer.compare(dx, 0);
-            int stepY = Integer.compare(dy, 0);
+            int stepX = Integer.compare(p.x, pos.x);
+            int stepY = Integer.compare(p.y, pos.y);
 
             int x = pos.x + stepX;
             int y = pos.y + stepY;
 
-            while (x != p.x && y != p.y) {
+            while (x != p.x || y != p.y) {
                 if (board[x][y].getPiece().isPresent()) {
                     return false;
                 }
@@ -44,8 +44,8 @@ public class Queen extends Piece {
         }
 
         if (p.x == pos.x || p.y == pos.y) {
-            int stepX = Integer.compare(dx, 0);
-            int stepY = Integer.compare(dy, 0);
+            int stepX = Integer.compare(p.x, pos.x);
+            int stepY = Integer.compare(p.y, pos.y);
 
             int x = pos.x + stepX;
             int y = pos.y + stepY;

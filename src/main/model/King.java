@@ -5,6 +5,7 @@ import java.awt.Point;
 import main.core.Cell;
 
 public class King extends Piece {
+    private boolean hasMoved = false;
     public King(Point pos, String color) {
         super(pos, color, "king");
     }

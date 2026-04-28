@@ -7,7 +7,6 @@ public class GameWindow extends JFrame {
         setTitle("Chess Game");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-
         add(renderer);
         pack();
         setLocationRelativeTo(null);
