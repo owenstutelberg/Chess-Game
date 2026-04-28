@@ -10,26 +10,20 @@ public class Pawn extends Piece {
     }
 
     @Override
-    protected boolean validateMoveSpecific(Point p, Cell[][] board) {
+    public boolean validSelection(Point p, Cell[][] board) {
         // TODO: En Passant
         int dx = Math.abs(p.x - pos.x);
         int dy = (p.y - pos.y);
 
-        // Make sure the pawn cannot go backwards
-        if (dy > 0) return false;
-
-        // Check for capturing
-        if (dx > 0) {
-            if (dx == 1) {
-                if (board[p.x][p.y].getPiece().isEmpty()) {
-                    return false;
-                }
-            } else {
-                return false;
-            }
+        if (dx == 0) {
+            if (dy > 0) return false;
+            if (pos.y == 6) {
+                if (dy < -2) return false;
+            } else if (dy < -1) return false;
+        } else {
+            if (dy != -1) return false;
+            if (board[p.x][p.y].getPiece().isEmpty()) return false;
         }
-        
-
         return true;
     }
 }

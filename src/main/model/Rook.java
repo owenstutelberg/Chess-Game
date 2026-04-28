@@ -10,14 +10,7 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean isValidMove(Point p, Cell[][] board) {
-        if (board[p.x][p.y].getPiece().isPresent()) {
-            if (board[p.x][p.y].getPiece().get().color.equals(this.color)) {
-                return false;
-            }
-        }
-        if (p.equals(pos)) return false;
-
+    public boolean validSelection(Point p, Cell[][] board) {
         if (p.x != pos.x && p.y != pos.y) return false;
 
         if (p.x == pos.x) {

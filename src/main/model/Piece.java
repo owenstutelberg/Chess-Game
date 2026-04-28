@@ -34,5 +34,18 @@ public abstract class Piece {
         return color;
     }
 
-    public abstract boolean isValidMove(Point p, Cell[][] board);
+    public boolean isValidMove(Point p, Cell[][] board) {
+        if (!validSelection(p, board)) return false;
+
+        if (board[p.x][p.y].getPiece().isPresent()) {
+            if (board[p.x][p.y].getPiece().get().color.equals(this.color)) {
+                return false;
+            }
+        }
+        if (p.equals(pos)) return false;
+
+        return true;
+    }
+
+    public abstract boolean validSelection(Point p, Cell[][] board);
 }

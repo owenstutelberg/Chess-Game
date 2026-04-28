@@ -115,16 +115,19 @@ public class Board {
         Cell dest = board[x][y];
 
         if (selection != null && selection.getPiece().isPresent()) {
-            // move the piece from the selected cell to the destination
-            Piece moving = selection.getPiece().get();
+            if (selection.getPiece().get().getColor().equals((turn % 2 == 0) ? "white" : "black")) {
+                // move the piece from the selected cell to the destination
+                Piece moving = selection.getPiece().get();
 
-            if (moving.isValidMove(new Point(x, y), board)) {
-                dest.addPiece(moving);
-                moving.setPosition(new Point(x, y));
-                selection.clear();
-                flip();
+                if (moving.isValidMove(new Point(x, y), board)) {
+                    dest.addPiece(moving);
+                    moving.setPosition(new Point(x, y));
+                    selection.clear();
+                    flip();
+
+                    turn++;
+                }
             }
-
         }
 
         // reset selection reference
